@@ -1,0 +1,33 @@
+# NLx Pipeline – Python dependencies
+# Install with:  pip install -r requirements.txt
+
+# Core data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Machine learning / NLP
+scikit-learn>=1.3.0      # TF-IDF vectorizer + cosine similarity
+
+# Configuration
+PyYAML>=6.0
+
+# ── Optional but recommended ────────────────────────────────────────────────
+
+# Better HTML parsing (fallback: regex)
+beautifulsoup4>=4.12.0
+lxml>=4.9.0              # faster HTML parser for bs4
+
+# Higher-recall skill extraction via noun chunks
+# After installing spaCy, also run:
+#   python -m spacy download en_core_web_sm
+spacy>=3.7.0
+
+# Embedding-based skill matching (future extension)
+# sentence-transformers>=2.5.0
+
+# Progress bars for long-running runs
+tqdm>=4.66.0
+
+# Jupyter notebooks (for interactive exploration)
+jupyter>=1.0.0
+ipykernel>=6.0.0

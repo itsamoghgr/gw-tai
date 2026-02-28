@@ -1,0 +1,51 @@
+# NLx Pipeline Configuration
+# Adjust paths and thresholds as needed
+
+paths:
+  raw_jobs: "../data/colorado.csv"
+  taxonomy_skills: "../data/colorado_processed.csv"
+  output_dir: "./output"
+
+output:
+  structured_jobs: "structured_jobs.csv"
+  structured_skills: "structured_skills.csv"
+  pipeline_report: "pipeline_report.json"
+
+processing:
+  # Minimum correlation coefficient to accept a taxonomy skill match
+  taxonomy_match_threshold: 0.60
+
+  # Chunk size for processing large CSVs (rows per batch)
+  chunk_size: 10000
+
+  # Maximum number of skills to extract per job posting
+  max_skills_per_job: 20
+
+  # Whether to run in sample mode (first N rows only) for testing
+  sample_mode: false
+  sample_size: 1000
+
+salary:
+  # Currency patterns to detect in description text
+  currency_symbol: "$"
+  units: ["hour", "hr", "year", "yr", "annual", "monthly", "week"]
+
+education:
+  # Ordered from least to most advanced
+  levels:
+    - label: "No Requirement"
+      keywords: []
+    - label: "High School Diploma / GED"
+      keywords: ["high school", "ged", "hsd", "secondary school", "hsed"]
+    - label: "Associate's Degree"
+      keywords: ["associate", "2-year", "two-year", "a.a.", "a.s.", "a.a.s"]
+    - label: "Bachelor's Degree"
+      keywords: ["bachelor", "b.s.", "b.a.", "bs", "ba", "undergraduate", "4-year", "four-year", "college degree"]
+    - label: "Master's Degree"
+      keywords: ["master", "m.s.", "m.a.", "mba", "m.eng", "graduate degree", "postgraduate"]
+    - label: "Doctoral Degree"
+      keywords: ["phd", "ph.d", "doctorate", "doctoral", "d.d.s", "m.d.", "j.d."]
+
+logging:
+  level: "INFO"
+  log_file: "./output/pipeline.log"
