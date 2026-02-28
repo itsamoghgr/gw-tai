@@ -4,7 +4,7 @@ pipeline.py
 -----------
 NLx Job Posting Structuring Pipeline – main entry point.
 
-Usage
+Usage - by NLx
 -----
 # Run on full dataset (from the nlx_pipeline/ directory)
 python pipeline.py \\
